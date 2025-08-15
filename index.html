@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hold'em</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="cover.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="app-header">
+        <div class="brand">
+          <span class="brand-mark">♦</span>
+          <span class="brand-text">Hold'em</span>
+        </div>
+        <div class="bankroll">
+          <span>Your Stack:</span>
+          <span id="playerStack">1000</span>
+        </div>
+        <div class="header-controls">
+          <label class="sr-only" for="difficulty">Difficulty</label>
+          <div class="select-wrap">
+            <select id="difficulty">
+              <option value="easy">Easy</option>
+              <option value="normal" selected>Normal</option>
+              <option value="hard">Hard</option>
+            </select>
+          </div>
+          <button id="btnReset" class="ghost small">Reset</button>
+        </div>
+      </header>
+
+      <main class="table">
+        <div class="table-surface">
+          <div class="table-rail">
+            <div class="pot">
+              <span>Pot</span>
+              <strong id="pot">0</strong>
+            </div>
+            <div class="blinds">
+              <span>Blinds</span>
+              <strong id="blinds">5 / 10</strong>
+            </div>
+            <div class="hand-info" id="handInfo">Preflop</div>
+          </div>
+
+          <section class="opponent seat">
+            <div class="seat-header">
+              <div class="name">Dealer</div>
+              <div class="stack"><span id="opponentStack">1000</span></div>
+            </div>
+            <div class="hole-cards" id="opponentCards"></div>
+            <div class="action-chip" id="opponentAction"></div>
+          </section>
+
+          <section class="board">
+            <div class="community-cards" id="community"></div>
+          </section>
+
+          <section class="player seat">
+            <div class="seat-header">
+              <div class="name">You</div>
+              <div class="stack"><span id="playerStackBottom">1000</span></div>
+            </div>
+            <div class="hole-cards" id="playerCards"></div>
+            <div class="action-chip" id="playerAction"></div>
+          </section>
+
+          <div class="fx-confetti" id="fxConfetti"></div>
+          <div class="fx-chips" id="fxChips"></div>
+        </div>
+
+        <div class="controls">
+          <div class="status" id="status">Your move</div>
+          <div class="betting">
+            <div class="bet-sizing">
+              <input type="range" id="betSlider" min="10" max="1000" step="5" value="50" />
+              <div class="bet-amount">Bet: <strong id="betAmount">50</strong></div>
+            </div>
+            <div class="action-buttons">
+              <button id="btnFold" class="danger">Fold</button>
+              <button id="btnCheckCall">Check</button>
+              <button id="btnBetRaise" class="primary">Bet</button>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <div class="toast" id="toast"></div>
+
+      <div class="overlay" id="overlay" hidden>
+        <div class="dialog">
+          <h2 id="dialogTitle">Hand Result</h2>
+          <p id="dialogBody"></p>
+          <div class="dialog-actions">
+            <button id="btnNextHand" class="primary">Next Hand</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html> 
