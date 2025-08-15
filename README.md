@@ -8,9 +8,11 @@ Open `index.html` in a modern browser (Chrome, Edge, Firefox, Safari). No build 
 ## Features
 - Heads-up vs. simple dealer AI
 - Blinds, pot, betting/raising, calls/checks/folds
+- Normal mode set as default
 - 7-card evaluator (best of 21 combos)
 - Clean card render, dark felt table, subtle accents
 
 ## Notes
 - The AI uses a lightweight heuristic; it’s meant to be fun, not unbeatable.
+
 - Minimum bet is the big blind; raises use the slider or quick buttons. 
